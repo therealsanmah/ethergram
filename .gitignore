@@ -1,0 +1,5 @@
+node_modules/
+.sonarlint/
+*.zip
+config.json
+serviceAccount.json

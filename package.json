@@ -1,0 +1,22 @@
+{
+  "name": "ethergram",
+  "version": "1.0.0",
+  "description": "Telegram bot to manage an address book for ether wallets",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "zip": "bestzip ethergram.zip index.js config.json package.json serviceAccount.json src/ node_modules/"
+  },
+  "author": "Sankaranarayanan M",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "firebase-admin": "^5.8.2",
+    "lodash": "^4.17.5",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "bestzip": "^1.1.4"
+  }
+}
