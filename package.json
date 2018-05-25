@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
+    "lint": "eslint . --fix",
     "zip": "bestzip ethergram.zip index.js config.json package.json serviceAccount.json src/ node_modules/"
   },
   "author": "Sankaranarayanan M",
@@ -17,6 +18,9 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "bestzip": "^1.1.4"
+    "bestzip": "^1.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
   }
 }
