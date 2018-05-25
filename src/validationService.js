@@ -1,5 +1,5 @@
-const validUserName = /[\w@]+/;
-const validWallet = /0x[0-9a-fA-F]+/;
+const validUserName = /^[\w@]+$/;
+const validWallet = /^0x[0-9a-fA-F]+$/;
 
 exports.isValidSet = function isValidSet(username, ethWallet) {
   if (!username || !ethWallet) {
