@@ -50,23 +50,25 @@ function processMessage(message, root) {
 exports.handleTelegramRequest = function handleTelegramRequest(message) {
   if (telegramService.isCommand(message)) {
     return processMessage(message.text, message.chat.id)
-      .then(responseMessage => telegramService.sendReply(message.chat.id, message.message_id, responseMessage)
-        .then(() => 'success')).catch((e) => {
-        console.error(e);
-        if (e.message === 'CommandNotFound') {
-          console.log(`Unknown command: ${message.text}`);
-        } else if (e.message === 'SyntaxError') {
-          const help = 'Incorrect usage. Try: \n/set <alias> <address>\n/get <alias>\n/delete <alias>';
-          return telegramService.sendReply(message.chat.id, message.message_id, help)
-            .then(() => 'success')
-            .catch(() => {
+      .then(responseMessage =>
+        telegramService.sendReply(message.chat.id, message.message_id, responseMessage)
+          .then(() => 'success')
+          .catch((e) => {
+            console.error(e);
+            if (e.message === 'CommandNotFound') {
+              console.log(`Unknown command: ${message.text}`);
+            } else if (e.message === 'SyntaxError') {
+              const help = 'Incorrect usage. Try: \n/set <alias> <address>\n/get <alias>\n/delete <alias>';
+              return telegramService.sendReply(message.chat.id, message.message_id, help)
+                .then(() => 'success')
+                .catch(() => {
+                  throw new Error('InternalError');
+                });
+            } else {
               throw new Error('InternalError');
-            });
-        } else {
-          throw new Error('InternalError');
-        }
-        return {};
-      });
+            }
+            return {};
+          }));
   }
   console.log(`Not a command: ${message.text}`);
   return Promise.resolve('No operation');

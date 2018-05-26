@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 const _ = require('lodash');
-const conf = require('../config.json');
+const conf = require('../config');
 
 const serviceAccount = require(conf.db.serviceAccount);
 admin.initializeApp({

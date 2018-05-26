@@ -1,6 +1,6 @@
 const request = require('request-promise');
 const _ = require('lodash');
-const conf = require('../config.json');
+const conf = require('../config');
 
 const { botId } = conf.telegram;
 const callBackUrl = `https://api.telegram.org/bot${botId}`;
