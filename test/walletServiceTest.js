@@ -1,7 +1,9 @@
 const assert = require('assert');
 const proxyquire = require('proxyquire');
 const sinon = require('sinon');
-const { describe, it, beforeEach, afterEach } = require('mocha');
+const {
+  describe, it, beforeEach, afterEach,
+} = require('mocha');
 
 const mockAddress = '0x12345';
 const mockUsername = '@testUser';

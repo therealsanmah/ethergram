@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "lint": "eslint . --fix",
+    "build": "npm run lint && npm run test",
+    "lint": "eslint .",
     "zip": "bestzip ethergram.zip index.js config.json package.json serviceAccount.json src/ node_modules/"
   },
   "author": "Sankaranarayanan M",
